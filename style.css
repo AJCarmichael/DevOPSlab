@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Rye&display=swap');
+
+/* Reset & Core */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   Modern Theme (Index)
+   ========================================= */
+body.modern {
+    background: #0f172a;
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.modern-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 4rem;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modern-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #60a5fa, #c084fc, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -2px;
+}
+
+.modern-text {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.glow-button {
+    background: white;
+    color: #0f172a;
+    padding: 1rem 2rem;
+    border-radius: 99px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.glow-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+/* =========================================
+   RDR Theme (Sidepage)
+   ========================================= */
+body.rdr {
+    background-color: #aa0505; /* RDR Red */
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'Rye', serif;
+    color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vignette effect */
+body.rdr::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle, transparent 40%, #000 130%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rdr-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.rdr-card {
+    background: #e8e0cc; /* Paper color */
+    padding: 4rem;
+    transform: rotate(-1deg);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+    position: relative;
+    clip-path: polygon(
+        2% 0%, 98% 2%, 100% 98%, 0% 100%
+    ); /* Make it look uneven */
+}
+
+/* Grange texture overlay for card */
+.rdr-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.15'/%3E%3C/svg%3E");
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.rdr-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #aa0505;
+    text-shadow: 2px 2px 0px #000;
+    margin-bottom: 0.5rem;
+    letter-spacing: 5px;
+    animation: textGrit 3s infinite alternate;
+}
+
+.rdr-divider {
+    height: 4px;
+    background: #000;
+    margin: 1rem auto;
+    width: 60%;
+    border-radius: 2px;
+}
+
+.rdr-text {
+    font-family: 'Courier New', Courier, monospace; /* Typewriter style */
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c2c2c;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.rdr-btn {
+    background: #1a1a1a;
+    color: #e8e0cc;
+    padding: 1rem 3rem;
+    font-family: 'Rye', serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid #aa0505;
+    transition: all 0.2s;
+    display: inline-block;
+    position: relative;
+    z-index: 20;
+}
+
+.rdr-btn:hover {
+    background: #aa0505;
+    color: #1a1a1a;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #aa0505;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes textGrit {
+    0% { opacity: 0.9; }
+    100% { opacity: 1; text-shadow: 3px 3px 0px #000; }
+}
+
+/* Gun barrel animation element */
+.barrel-transition {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: black;
+    border-radius: 50%;
+    z-index: 100;
+    transition: width 1s ease, height 1s ease;
+}

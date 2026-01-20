@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanted: Dead or Alive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="rdr">
+
+    <div class="rdr-content">
+        <div class="rdr-card">
+            <h1 class="rdr-title">WANTED</h1>
+            <div class="rdr-divider"></div>
+            <p class="rdr-text">
+                DEAD OR ALIVE
+                <br><br>
+                JAVIER ESCUELLA
+                <br><br>
+                For Treason, Murder, and Robbery against the United States.
+            </p>
+            <div class="rdr-divider"></div>
+            <p class="rdr-text" style="font-size: 0.9rem; text-transform: none;">
+                Approach with extreme caution. Armed and dangerous.
+            </p>
+            <br>
+            <a href="index.html" class="rdr-btn">Back to Civilization</a>
+        </div>
+    </div>
+
+    <!-- Gun barrel transition element -->
+    <div class="barrel-transition" id="transition-overlay" style="width: 300vmax; height: 300vmax;"></div>
+
+    <script>
+        // Entrance animation
+        window.addEventListener('load', () => {
+            const overlay = document.getElementById('transition-overlay');
+            // Shrink the barrel
+            setTimeout(() => {
+                overlay.style.width = '0';
+                overlay.style.height = '0';
+            }, 100);
+        });
+
+        // Exit animation
+        const btn = document.querySelector('.rdr-btn');
+        const overlay = document.getElementById('transition-overlay');
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = btn.getAttribute('href');
+
+            // Expand the barrel
+            overlay.style.width = '300vmax';
+            overlay.style.height = '300vmax';
+
+            setTimeout(() => {
+                window.location.href = href;
+            }, 800);
+        });
+    </script>
+</body>
+
+</html>
