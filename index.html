@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Javier's digital portal - A modern design space with an outlaw spirit.">
     <title>Javier's Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,6 +16,7 @@
         <p class="modern-text">Welcome to the digital frontier. A space where modern design meets the outlaw spirit.</p>
 
         <a href="sidepage.html" class="glow-button">Enter the West</a>
+        <div class="loading-spinner" id="loading-spinner" style="display:none;"></div>
     </div>
 
     <!-- Gun barrel transition element (hidden by default) -->
@@ -23,10 +25,15 @@
     <script>
         const btn = document.querySelector('.glow-button');
         const overlay = document.getElementById('transition-overlay');
+        const spinner = document.getElementById('loading-spinner');
 
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const href = btn.getAttribute('href');
+
+            // Show loading spinner and disable button
+            spinner.style.display = 'block';
+            btn.disabled = true;
 
             // Expand the barrel
             overlay.style.width = '300vmax';
