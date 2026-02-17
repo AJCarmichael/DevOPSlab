@@ -2,3 +2,5 @@
 17-Feb-2026 09:59:09.751 INFO [http-nio-8090-exec-9] org.apache.catalina.core.ApplicationContext.log Manager: init: Global resources are available
 17-Feb-2026 09:59:09.755 INFO [http-nio-8090-exec-9] org.apache.catalina.core.ApplicationContext.log Manager: deploy: Deploying web application '/my-demo'
 17-Feb-2026 09:59:09.755 INFO [http-nio-8090-exec-9] org.apache.catalina.core.ApplicationContext.log Manager: Uploading WAR file to /workspaces/DevOPSlab/exp3/tomcat/webapps/my-demo.war.tmp
+17-Feb-2026 10:06:58.043 INFO [http-nio-8090-exec-8] org.apache.catalina.core.ApplicationContext.log Manager: deploy: Deploying web application '/my-demo'
+17-Feb-2026 10:06:58.044 INFO [http-nio-8090-exec-8] org.apache.catalina.core.ApplicationContext.log Manager: Uploading WAR file to /workspaces/DevOPSlab/exp3/tomcat/webapps/my-demo.war.tmp
