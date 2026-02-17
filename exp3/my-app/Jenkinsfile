@@ -1,22 +1,35 @@
 pipeline {
     agent any
+    tools {
+        // These MUST match the names you set in Manage Jenkins > Tools
+        jdk 'JAVA_21'
+        maven 'MAVEN_3'
+    }
     stages {
         stage('Checkout') {
             steps {
-                // Checkout code from your repo
                 checkout scm
             }
         }
         stage('Build & Test') {
             steps {
-                // Use mvn command to compile and test
-                sh 'mvn clean package'
+                // 'dir' moves Jenkins into the folder where your pom.xml lives
+                dir('exp3/my-app') {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+        stage('Deploy to Tomcat') {
+            steps {
+                // This deploys the WAR to your Tomcat on port 8090
+                dir('exp3/my-app') {
+                    sh "curl -v -u admin:admin --upload-file target/*.war 'http://localhost:8090/manager/text/deploy?path=/my-demo&update=true'"
+                }
             }
         }
         stage('Archive Artifacts') {
             steps {
-                // Archive the generated JAR/WAR file
-                archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'exp3/my-app/target/*.war', allowEmptyArchive: true
             }
         }
     }
