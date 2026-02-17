@@ -49,3 +49,5 @@ WARNING: Restricted methods will be blocked in a future release unless native ac
 17-Feb-2026 09:35:46.191 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/workspaces/DevOPSlab/exp3/tomcat/webapps/ROOT] has finished in [12] ms
 17-Feb-2026 09:35:46.196 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8090"]
 17-Feb-2026 09:35:46.224 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [958] milliseconds
+17-Feb-2026 09:59:09.761 INFO [http-nio-8090-exec-9] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/workspaces/DevOPSlab/exp3/tomcat/webapps/my-demo.war]
+17-Feb-2026 09:59:09.829 INFO [http-nio-8090-exec-9] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/workspaces/DevOPSlab/exp3/tomcat/webapps/my-demo.war] has finished in [67] ms
