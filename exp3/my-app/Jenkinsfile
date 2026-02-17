@@ -3,7 +3,7 @@ pipeline {
     tools {
         // These MUST match the names you set in Manage Jenkins > Tools
         jdk 'JAVA_21'
-        maven 'MAVEN_3'
+        maven 'MVN_3'
     }
     stages {
         stage('Checkout') {
