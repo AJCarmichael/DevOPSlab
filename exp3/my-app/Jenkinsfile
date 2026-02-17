@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from your repo
+                checkout scm
+            }
+        }
+        stage('Build & Test') {
+            steps {
+                // Use mvn command to compile and test
+                sh 'mvn clean package'
+            }
+        }
+        stage('Archive Artifacts') {
+            steps {
+                // Archive the generated JAR/WAR file
+                archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+            }
+        }
+    }
+}
