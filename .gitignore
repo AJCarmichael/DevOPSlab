@@ -1,1 +1,4 @@
 
+sonarqube/
+*.zip
+*.jar
